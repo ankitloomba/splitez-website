@@ -1,6 +1,21 @@
 import Image from "next/image";
 
-export default function Home() {
+async function getFaqs() {
+  if (!process.env.NEXT_PUBLIC_STRAPI_URL) return null;
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/faqs`, { 
+      next: { revalidate: 10 } // Revalidate every 10 seconds
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    return data.data;
+  } catch (error) {
+    return null;
+  }
+}
+
+export default async function Home() {
+  const faqs = await getFaqs();
   return (
     <main className="min-h-screen bg-white">
       {/* HERO SECTION */}
@@ -370,26 +385,42 @@ export default function Home() {
           
           <div className="md:w-2/3">
             <div className="divide-y divide-gray-100">
-              <div className="py-6 flex justify-between items-center cursor-pointer group">
-                <h3 className="text-lg font-bold group-hover:text-indigo-600 transition">Does SplitEZ move money?</h3>
-                <span className="text-indigo-400 text-xl font-light">+</span>
-              </div>
-              <div className="py-6 flex justify-between items-center cursor-pointer group">
-                <h3 className="text-lg font-bold group-hover:text-indigo-600 transition">Can I use it if my friends don't?</h3>
-                <span className="text-indigo-400 text-xl font-light">+</span>
-              </div>
-              <div className="py-6 flex justify-between items-center cursor-pointer group">
-                <h3 className="text-lg font-bold group-hover:text-indigo-600 transition">What happens on a trip with three currencies?</h3>
-                <span className="text-indigo-400 text-xl font-light">+</span>
-              </div>
-              <div className="py-6 flex justify-between items-center cursor-pointer group">
-                <h3 className="text-lg font-bold group-hover:text-indigo-600 transition">Are the ads bad?</h3>
-                <span className="text-indigo-400 text-xl font-light">+</span>
-              </div>
-              <div className="py-6 flex justify-between items-center cursor-pointer group">
-                <h3 className="text-lg font-bold group-hover:text-indigo-600 transition">Can I get my data out?</h3>
-                <span className="text-indigo-400 text-xl font-light">+</span>
-              </div>
+              
+              {faqs && faqs.length > 0 ? (
+                faqs.map((faq: any) => {
+                  // Handle both Strapi v4 and v5 data structures
+                  const question = faq.attributes?.question || faq.question;
+                  const id = faq.id || faq.documentId;
+                  
+                  return (
+                    <div key={id} className="py-6 flex justify-between items-center cursor-pointer group">
+                      <h3 className="text-lg font-bold group-hover:text-indigo-600 transition">{question}</h3>
+                      <span className="text-indigo-400 text-xl font-light">+</span>
+                    </div>
+                  );
+                })
+              ) : (
+                /* Fallback if Strapi is not connected */
+                <>
+                  <div className="py-6 flex justify-between items-center cursor-pointer group">
+                    <h3 className="text-lg font-bold group-hover:text-indigo-600 transition">Does SplitEZ move money? (Not connected to Strapi yet)</h3>
+                    <span className="text-indigo-400 text-xl font-light">+</span>
+                  </div>
+                  <div className="py-6 flex justify-between items-center cursor-pointer group">
+                    <h3 className="text-lg font-bold group-hover:text-indigo-600 transition">Can I use it if my friends don't?</h3>
+                    <span className="text-indigo-400 text-xl font-light">+</span>
+                  </div>
+                  <div className="py-6 flex justify-between items-center cursor-pointer group">
+                    <h3 className="text-lg font-bold group-hover:text-indigo-600 transition">What happens on a trip with three currencies?</h3>
+                    <span className="text-indigo-400 text-xl font-light">+</span>
+                  </div>
+                  <div className="py-6 flex justify-between items-center cursor-pointer group">
+                    <h3 className="text-lg font-bold group-hover:text-indigo-600 transition">Are the ads bad?</h3>
+                    <span className="text-indigo-400 text-xl font-light">+</span>
+                  </div>
+                </>
+              )}
+
             </div>
           </div>
         </div>
