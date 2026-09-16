@@ -36,23 +36,23 @@ export default async function Home() {
         </nav>
 
         {/* Hero Content */}
-        <div className="container mx-auto px-6 pt-16 pb-32 flex flex-col lg:flex-row items-center">
+        <div className="container mx-auto px-6 pt-8 pb-16 flex flex-col lg:flex-row items-center">
           {/* Left Side: Text */}
-          <div className="lg:w-1/2 mt-10">
+          <div className="lg:w-1/2 mt-4">
             <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium mb-6">
               <span className="w-2 h-2 rounded-full bg-indigo-500 inline-block mr-2"></span>
               Free forever · Ad-free from ₹99/month
             </div>
             
-            <h1 className="text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6">
+            <h1 className="text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6">
               Nobody <br /> remembers <br /> who paid <br /> for the cab.
             </h1>
             
-            <p className="text-lg text-gray-400 mb-10 max-w-md leading-relaxed">
+            <p className="text-lg text-gray-400 mb-8 max-w-md leading-relaxed">
               SplitEZ does. Add the expense, split it however you like, and everyone in the group sees the same number — down to the last rupee.
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center gap-4 mb-10">
+            <div className="flex flex-col sm:flex-row items-center gap-4 mb-8">
               <button className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-500 transition px-8 py-3.5 rounded-full text-base font-semibold">
                 Get the app — free
               </button>
@@ -79,14 +79,14 @@ export default async function Home() {
           </div>
           
           {/* Right Side: Mockup Placeholder */}
-          <div className="lg:w-1/2 relative mt-20 lg:mt-0 flex justify-center">
+          <div className="lg:w-1/2 relative mt-16 lg:mt-0 flex justify-center">
             {/* Decorative background blob */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-indigo-900/20 blur-3xl rounded-full"></div>
             
             {/* Phone Mockup Frame */}
-            <div className="relative w-[300px] h-[600px] bg-[#1a172c] rounded-[40px] border-[8px] border-[#2a2640] shadow-2xl shadow-indigo-900/50 overflow-hidden flex flex-col">
+            <div className="relative w-[280px] h-[540px] bg-[#1a172c] rounded-[36px] border-[6px] border-[#2a2640] shadow-2xl shadow-indigo-900/50 overflow-hidden flex flex-col">
               {/* Fake App UI */}
-              <div className="p-6 pt-10">
+              <div className="p-5 pt-8">
                 <div className="flex justify-between items-center mb-6">
                   <div className="w-8 h-8 rounded-full bg-white/10"></div>
                   <div className="w-8 h-8 rounded-full bg-white/10"></div>
