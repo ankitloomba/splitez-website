@@ -160,6 +160,325 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* WHAT'S INSIDE SECTION */}
+      <section className="py-24 bg-white text-gray-900">
+        <div className="container mx-auto px-6">
+          <div className="text-xs font-bold tracking-widest text-teal-600 uppercase mb-4">WHAT'S INSIDE</div>
+          <h2 className="text-5xl font-extrabold tracking-tight max-w-3xl mb-16 leading-tight">
+            Every argument about money, pre-empted.
+          </h2>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Card 1 */}
+            <div className="bg-gray-50/80 p-8 rounded-3xl border border-gray-100 hover:shadow-md transition">
+              <div className="w-8 h-8 bg-indigo-100 rounded flex items-center justify-center mb-6">
+                <div className="w-3 h-3 bg-indigo-500 rounded-sm"></div>
+              </div>
+              <h3 className="text-xl font-bold mb-3">Four ways to split</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">Equal, exact, shares, percentage. Change your mind after the fact and everyone's balance follows.</p>
+            </div>
+            
+            {/* Card 2 */}
+            <div className="bg-gray-50/80 p-8 rounded-3xl border border-gray-100 hover:shadow-md transition">
+              <div className="w-8 h-8 bg-teal-100 rounded flex items-center justify-center mb-6">
+                <div className="w-3 h-3 bg-teal-500 rounded-sm"></div>
+              </div>
+              <h3 className="text-xl font-bold mb-3">Groups and trips</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">Banner images, categories, duplicate last month's flat, archive the trip when it's done.</p>
+            </div>
+            
+            {/* Card 3 */}
+            <div className="bg-gray-50/80 p-8 rounded-3xl border border-gray-100 hover:shadow-md transition">
+              <div className="w-8 h-8 bg-yellow-100 rounded flex items-center justify-center mb-6">
+                <div className="w-3 h-3 bg-yellow-500 rounded-sm"></div>
+              </div>
+              <h3 className="text-xl font-bold mb-3">Reminders that land</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">In-app first, then a share link through any messaging app. Nudges, not spam.</p>
+            </div>
+
+            {/* Card 4 */}
+            <div className="bg-gray-50/80 p-8 rounded-3xl border border-gray-100 hover:shadow-md transition">
+              <div className="w-8 h-8 bg-indigo-100 rounded flex items-center justify-center mb-6">
+                <div className="w-3 h-3 bg-indigo-500 rounded-sm"></div>
+              </div>
+              <h3 className="text-xl font-bold mb-3">Receipt scanning</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">Point the camera at the bill. The amount, date and merchant pre-fill — you just confirm.</p>
+            </div>
+
+            {/* Card 5 */}
+            <div className="bg-gray-50/80 p-8 rounded-3xl border border-gray-100 hover:shadow-md transition">
+              <div className="w-8 h-8 bg-teal-100 rounded flex items-center justify-center mb-6">
+                <div className="w-3 h-3 bg-teal-500 rounded-sm"></div>
+              </div>
+              <h3 className="text-xl font-bold mb-3">Exports that survive audits</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">CSV, Excel or PDF from any group, with the full activity log attached.</p>
+            </div>
+
+            {/* Card 6 */}
+            <div className="bg-gray-50/80 p-8 rounded-3xl border border-gray-100 hover:shadow-md transition">
+              <div className="w-8 h-8 bg-yellow-100 rounded flex items-center justify-center mb-6">
+                <div className="w-3 h-3 bg-yellow-500 rounded-sm"></div>
+              </div>
+              <h3 className="text-xl font-bold mb-3">Group Buy</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">Curated partner rates on things groups actually buy, split automatically across the group.</p>
+            </div>
+          </div>
+          
+          <div className="mt-8">
+            <a href="#" className="text-indigo-600 font-semibold hover:underline text-sm">
+              All features in detail →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* TRIPS SECTION */}
+      <section className="py-24 bg-[#193F34] text-white">
+        <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
+          <div className="lg:w-1/2">
+            <div className="text-xs font-bold tracking-widest text-teal-300 uppercase mb-4">TRIPS</div>
+            <h2 className="text-5xl lg:text-6xl font-extrabold tracking-tight mb-8 leading-[1.1]">
+              Four people, three currencies, one number at the end.
+            </h2>
+            <p className="text-lg text-teal-100 mb-10 max-w-md leading-relaxed">
+              Pay in baht, log it in baht. SplitEZ converts at the day's rate, keeps the original on the receipt, and settles everyone in rupees when you're home.
+            </p>
+            <button className="bg-[#112d24] hover:bg-[#0c201a] transition px-6 py-3 rounded-full text-sm font-semibold border border-[#235043]">
+              Trip features →
+            </button>
+          </div>
+          
+          <div className="lg:w-1/2 w-full flex justify-center lg:justify-end">
+            {/* Mockup Card */}
+            <div className="bg-[#1f4b3e] p-6 rounded-3xl border border-teal-800/30 w-full max-w-md shadow-2xl">
+              <div className="text-xs font-bold tracking-widest text-teal-300 uppercase mb-6">BANGKOK · 4 DAYS</div>
+              
+              <div className="space-y-6">
+                <div className="flex justify-between items-center pb-6 border-b border-teal-700/50">
+                  <div>
+                    <div className="font-bold text-lg">Grand Palace tickets</div>
+                    <div className="text-sm text-teal-200">Split 4 ways</div>
+                  </div>
+                  <div className="text-right">
+                    <div className="font-bold text-lg">฿2,000</div>
+                    <div className="text-xs text-teal-300">₹5,240</div>
+                  </div>
+                </div>
+                
+                <div className="flex justify-between items-center pb-6 border-b border-teal-700/50">
+                  <div>
+                    <div className="font-bold text-lg">Street food night</div>
+                    <div className="text-sm text-teal-200">Rhea paid</div>
+                  </div>
+                  <div className="text-right">
+                    <div className="font-bold text-lg">฿860</div>
+                    <div className="text-xs text-teal-300">₹2,253</div>
+                  </div>
+                </div>
+
+                <div className="flex justify-between items-center pb-6 border-b border-teal-700/50">
+                  <div>
+                    <div className="font-bold text-lg">Airport transfer</div>
+                    <div className="text-sm text-teal-200">Split 3 ways</div>
+                  </div>
+                  <div className="text-right">
+                    <div className="font-bold text-lg">฿1,200</div>
+                    <div className="text-xs text-teal-300">₹3,144</div>
+                  </div>
+                </div>
+
+                <div className="flex justify-between items-center">
+                  <div>
+                    <div className="font-bold text-lg">Hotel · 3 nights</div>
+                    <div className="text-sm text-teal-200">You paid</div>
+                  </div>
+                  <div className="text-right">
+                    <div className="font-bold text-lg">฿9,600</div>
+                    <div className="text-xs text-teal-300">₹25,152</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PRICING SECTION */}
+      <section className="py-24 bg-gray-50 text-gray-900">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <div className="text-xs font-bold tracking-widest text-pink-600 uppercase mb-4">PRICING</div>
+            <h2 className="text-5xl lg:text-6xl font-extrabold tracking-tight max-w-3xl mx-auto leading-tight">
+              Free forever. Ad-free for the price of one chai a week.
+            </h2>
+          </div>
+          
+          <div className="flex flex-col md:flex-row gap-8 max-w-4xl mx-auto">
+            {/* Free Tier */}
+            <div className="flex-1 bg-white p-10 rounded-[40px] shadow-sm border border-gray-100 flex flex-col">
+              <h3 className="text-2xl font-bold mb-2">Free</h3>
+              <div className="text-6xl font-extrabold mb-2">₹0</div>
+              <p className="text-gray-500 text-sm mb-8">Everything that splits money</p>
+              
+              <ul className="space-y-4 mb-10 flex-1">
+                <li className="flex items-center text-sm font-medium"><span className="text-green-500 mr-3">✓</span> Unlimited groups, trips and expenses</li>
+                <li className="flex items-center text-sm font-medium"><span className="text-green-500 mr-3">✓</span> All four split modes</li>
+                <li className="flex items-center text-sm font-medium"><span className="text-green-500 mr-3">✓</span> Balances, settle-up and reminders</li>
+                <li className="flex items-center text-sm font-medium"><span className="text-green-500 mr-3">✓</span> CSV and PDF export</li>
+                <li className="flex items-center text-sm font-medium"><span className="text-green-500 mr-3">✓</span> Multi-currency trips</li>
+              </ul>
+            </div>
+            
+            {/* Plus Tier */}
+            <div className="flex-1 bg-[#100D22] text-white p-10 rounded-[40px] shadow-xl relative flex flex-col">
+              <div className="absolute top-8 right-8 bg-yellow-500 text-black text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                7 DAYS FREE
+              </div>
+              <h3 className="text-2xl font-bold mb-2">SplitEZ Plus</h3>
+              <div className="flex items-end mb-2">
+                <div className="text-6xl font-extrabold mr-2">₹99</div>
+                <div className="text-sm text-gray-400 mb-2">/month · ₹890/yr</div>
+              </div>
+              <p className="text-gray-400 text-sm mb-8">No ads, and the smart bits</p>
+              
+              <ul className="space-y-4 mb-10 flex-1">
+                <li className="flex items-center text-sm font-medium"><span className="text-white mr-3">✓</span> No banner or interstitial ads</li>
+                <li className="flex items-center text-sm font-medium"><span className="text-white mr-3">✓</span> AI receipt scanning, unlimited</li>
+                <li className="flex items-center text-sm font-medium"><span className="text-white mr-3">✓</span> Charts per person, group and trip</li>
+                <li className="flex items-center text-sm font-medium"><span className="text-white mr-3">✓</span> Excel export and scheduled reports</li>
+                <li className="flex items-center text-sm font-medium"><span className="text-white mr-3">✓</span> Priority support</li>
+              </ul>
+              
+              <button className="w-full bg-indigo-600 hover:bg-indigo-500 transition py-4 rounded-2xl text-sm font-bold">
+                Compare plans
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ SECTION */}
+      <section className="py-24 bg-white text-gray-900">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row gap-16 max-w-5xl">
+          <div className="md:w-1/3">
+            <h2 className="text-4xl font-extrabold tracking-tight mb-4">Questions people actually ask.</h2>
+            <a href="#" className="text-indigo-600 font-semibold hover:underline text-sm flex items-center">
+              Full help centre →
+            </a>
+          </div>
+          
+          <div className="md:w-2/3">
+            <div className="divide-y divide-gray-100">
+              <div className="py-6 flex justify-between items-center cursor-pointer group">
+                <h3 className="text-lg font-bold group-hover:text-indigo-600 transition">Does SplitEZ move money?</h3>
+                <span className="text-indigo-400 text-xl font-light">+</span>
+              </div>
+              <div className="py-6 flex justify-between items-center cursor-pointer group">
+                <h3 className="text-lg font-bold group-hover:text-indigo-600 transition">Can I use it if my friends don't?</h3>
+                <span className="text-indigo-400 text-xl font-light">+</span>
+              </div>
+              <div className="py-6 flex justify-between items-center cursor-pointer group">
+                <h3 className="text-lg font-bold group-hover:text-indigo-600 transition">What happens on a trip with three currencies?</h3>
+                <span className="text-indigo-400 text-xl font-light">+</span>
+              </div>
+              <div className="py-6 flex justify-between items-center cursor-pointer group">
+                <h3 className="text-lg font-bold group-hover:text-indigo-600 transition">Are the ads bad?</h3>
+                <span className="text-indigo-400 text-xl font-light">+</span>
+              </div>
+              <div className="py-6 flex justify-between items-center cursor-pointer group">
+                <h3 className="text-lg font-bold group-hover:text-indigo-600 transition">Can I get my data out?</h3>
+                <span className="text-indigo-400 text-xl font-light">+</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* BOTTOM CTA */}
+      <section className="py-20 bg-indigo-600 text-white">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div>
+            <h2 className="text-4xl font-extrabold tracking-tight mb-2">Settle the trip before the tan fades.</h2>
+            <p className="text-indigo-100">Free on iOS and Android. Ad-free from ₹99 a month.</p>
+          </div>
+          <div className="flex gap-4">
+            <button className="bg-white text-indigo-600 hover:bg-gray-50 transition px-8 py-4 rounded-full font-bold shadow-lg">
+              Get the app
+            </button>
+            <button className="bg-indigo-700 hover:bg-indigo-800 transition px-8 py-4 rounded-full font-bold border border-indigo-500">
+              See pricing
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="bg-[#100D22] text-white pt-20 pb-10">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between gap-12 border-b border-white/10 pb-16 mb-8">
+            
+            <div className="md:w-1/3">
+              <div className="flex items-center space-x-2 mb-6">
+                <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center font-bold text-xs">
+                  S
+                </div>
+                <span className="text-xl font-bold tracking-tight">SplitEZ</span>
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed mb-8 max-w-xs">
+                Shared expenses, made EZ. Built in India, for the group chat that always ends in "who paid for what".
+              </p>
+              <div className="flex gap-4">
+                <button className="bg-white/5 border border-white/10 hover:bg-white/10 transition px-4 py-2 rounded-lg text-sm font-medium">App Store</button>
+                <button className="bg-white/5 border border-white/10 hover:bg-white/10 transition px-4 py-2 rounded-lg text-sm font-medium">Google Play</button>
+              </div>
+            </div>
+            
+            <div className="flex gap-12 sm:gap-24">
+              <div>
+                <h4 className="text-xs font-bold tracking-widest uppercase text-gray-500 mb-6">Product</h4>
+                <ul className="space-y-4 text-sm text-gray-300">
+                  <li><a href="#" className="hover:text-white transition">Features</a></li>
+                  <li><a href="#" className="hover:text-white transition">How it works</a></li>
+                  <li><a href="#" className="hover:text-white transition">Pricing & Plus</a></li>
+                  <li><a href="#" className="hover:text-white transition">Security & privacy</a></li>
+                  <li><a href="#" className="hover:text-white transition">Download</a></li>
+                  <li><a href="#" className="hover:text-white transition">Support</a></li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="text-xs font-bold tracking-widest uppercase text-gray-500 mb-6">Company</h4>
+                <ul className="space-y-4 text-sm text-gray-300">
+                  <li><a href="#" className="hover:text-white transition">About</a></li>
+                  <li><a href="#" className="hover:text-white transition">Blog</a></li>
+                  <li><a href="#" className="hover:text-white transition">Contact</a></li>
+                  <li><a href="#" className="hover:text-white transition">Press kit</a></li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-xs font-bold tracking-widest uppercase text-gray-500 mb-6">Legal</h4>
+                <ul className="space-y-4 text-sm text-gray-300">
+                  <li><a href="#" className="hover:text-white transition">Terms of use</a></li>
+                  <li><a href="#" className="hover:text-white transition">Privacy policy</a></li>
+                  <li><a href="#" className="hover:text-white transition">Refund policy</a></li>
+                  <li><a href="#" className="hover:text-white transition">Ad & data choices</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
+            <div>© 2026 SplitEZ. All rights reserved.</div>
+            <div className="flex space-x-6 mt-4 sm:mt-0">
+              <a href="#" className="hover:text-gray-300">Terms</a>
+              <a href="#" className="hover:text-gray-300">Privacy</a>
+              <a href="#" className="hover:text-gray-300">Cookies</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
