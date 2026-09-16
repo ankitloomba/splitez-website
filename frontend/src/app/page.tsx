@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { PrismaClient } from '@prisma/client';
+import { Logo } from "@/components/Logo";
 
 const prisma = new PrismaClient();
 
@@ -22,13 +23,7 @@ export default async function Home() {
       <section className="bg-[#100D22] text-white overflow-hidden">
         {/* Navigation */}
         <nav className="container mx-auto px-6 py-6 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            {/* Logo placeholder */}
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center font-bold text-lg">
-              S
-            </div>
-            <span className="text-xl font-bold">SplitEZ</span>
-          </div>
+          <Logo reversed={true} size={36} />
           <div className="hidden md:flex space-x-8 text-sm font-medium text-gray-300">
             <a href="#" className="hover:text-white transition">Product</a>
             <a href="#" className="hover:text-white transition">Pricing</a>
@@ -450,11 +445,8 @@ export default async function Home() {
           <div className="flex flex-col md:flex-row justify-between gap-12 border-b border-white/10 pb-16 mb-8">
             
             <div className="md:w-1/3">
-              <div className="flex items-center space-x-2 mb-6">
-                <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center font-bold text-xs">
-                  S
-                </div>
-                <span className="text-xl font-bold tracking-tight">SplitEZ</span>
+              <div className="mb-6">
+                <Logo reversed={true} size={32} />
               </div>
               <p className="text-gray-400 text-sm leading-relaxed mb-8 max-w-xs">
                 Shared expenses, made EZ. Built in India, for the group chat that always ends in "who paid for what".
