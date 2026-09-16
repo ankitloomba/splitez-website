@@ -7,8 +7,11 @@ export function Logo({
   size?: number;
   className?: string;
 }) {
-  const leftColor = reversed ? "#FFFFFF" : "#818CF8";
-  const rightColor = reversed ? "#818CF8" : "#4338CA";
+  // RULE: "Light indigo always left, deep indigo always right."
+  const leftColor = "#818CF8"; 
+  const rightColor = "#4338CA"; 
+  
+  // Text colors change based on reversed state
   const splitColor = reversed ? "#FFFFFF" : "#10142A";
   const ezColor = reversed ? "#818CF8" : "#4338CA";
   
@@ -26,7 +29,8 @@ export function Logo({
       >
         <mask id="gap-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
           <rect width="40" height="40" fill="white" />
-          <line x1="16" y1="-5" x2="24" y2="45" stroke="black" strokeWidth="3" />
+          {/* Increased the angle of the split to match the brand guidelines more accurately */}
+          <line x1="12" y1="-5" x2="28" y2="45" stroke="black" strokeWidth="3.5" />
         </mask>
         <g mask="url(#gap-mask)">
           <path d="M0 20C0 8.9543 8.9543 0 20 0V40C8.9543 40 0 31.0457 0 20Z" fill={leftColor} />
