@@ -15,121 +15,162 @@ async function getFaqs() {
   }
 }
 
+async function getHero() {
+  try {
+    // Upsert to ensure we always have a default hero record
+    const hero = await prisma.hero.upsert({
+      where: { id: 1 },
+      update: {},
+      create: {
+        id: 1,
+        badgeText: "Free forever · Ad-free from ₹99/month",
+        headline: "Nobody remembers who paid for the cab.",
+        subheadline: "SplitEZ does. Add the expense, split it however you like, and everyone in the group sees the same number — down to the last rupee."
+      }
+    });
+    return hero;
+  } catch (error) {
+    // Fallback if DB isn't pushed yet
+    return {
+      badgeText: "Free forever · Ad-free from ₹99/month",
+      headline: "Nobody remembers who paid for the cab.",
+      subheadline: "SplitEZ does. Add the expense, split it however you like, and everyone in the group sees the same number — down to the last rupee."
+    };
+  }
+}
+
 export default async function Home() {
   const faqs = await getFaqs();
+  const hero = await getHero();
+  
   return (
     <main className="min-h-screen bg-white">
-      {/* HERO SECTION */}
-      <section className="bg-[#100D22] text-white overflow-hidden">
-        {/* Navigation */}
-        <nav className="container mx-auto px-6 py-6 flex items-center justify-between">
-          <Logo reversed={true} size={36} />
-          <div className="hidden md:flex space-x-8 text-sm font-medium text-gray-300">
-            <a href="#" className="hover:text-white transition">Product</a>
-            <a href="#" className="hover:text-white transition">Pricing</a>
-            <a href="#" className="hover:text-white transition">Blog</a>
-            <a href="#" className="hover:text-white transition">Support</a>
+      {/* TOP NAVIGATION (White Background) */}
+      <nav className="bg-white text-gray-900 py-4 px-6 relative z-10 border-b border-gray-100">
+        <div className="container mx-auto flex items-center justify-between">
+          <Logo reversed={false} size={32} />
+          <div className="hidden md:flex space-x-8 text-sm font-bold text-gray-600">
+            <a href="#" className="hover:text-gray-900 transition flex items-center gap-1">Product <span className="text-[10px] opacity-70">▼</span></a>
+            <a href="#" className="hover:text-gray-900 transition">Pricing</a>
+            <a href="#" className="hover:text-gray-900 transition">Blog</a>
+            <a href="#" className="hover:text-gray-900 transition">Support</a>
           </div>
-          <button className="bg-indigo-600 hover:bg-indigo-500 transition px-6 py-2.5 rounded-full text-sm font-semibold">
+          <button className="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-[0_0_20px_rgba(99,102,241,0.4)] transition">
             Get the app
           </button>
-        </nav>
+        </div>
+      </nav>
 
-        {/* Hero Content */}
-        <div className="container mx-auto px-6 pt-8 pb-16 flex flex-col lg:flex-row items-center">
+      {/* HERO SECTION (Dark Banner) */}
+      <section className="bg-[#10142A] text-white overflow-hidden relative">
+        {/* Decorative background glow on the right */}
+        <div className="absolute top-0 right-0 w-3/4 h-full bg-gradient-to-l from-indigo-900/30 to-transparent pointer-events-none"></div>
+
+        <div className="container mx-auto px-6 pt-16 pb-24 flex flex-col lg:flex-row items-center relative z-10">
           {/* Left Side: Text */}
-          <div className="lg:w-1/2 mt-4">
-            <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium mb-6">
-              <span className="w-2 h-2 rounded-full bg-indigo-500 inline-block mr-2"></span>
-              Free forever · Ad-free from ₹99/month
+          <div className="lg:w-1/2 mt-4 lg:pr-8">
+            <div className="inline-block px-4 py-1.5 rounded-full bg-transparent border border-white/20 text-xs font-semibold mb-8 text-gray-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 inline-block mr-2 align-middle"></span>
+              {hero.badgeText}
             </div>
             
-            <h1 className="text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6">
-              Nobody <br /> remembers <br /> who paid <br /> for the cab.
+            <h1 className="text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] mb-6 text-white">
+              {hero.headline}
             </h1>
             
-            <p className="text-lg text-gray-400 mb-8 max-w-md leading-relaxed">
-              SplitEZ does. Add the expense, split it however you like, and everyone in the group sees the same number — down to the last rupee.
+            <p className="text-lg text-gray-400 mb-10 max-w-md leading-relaxed font-medium">
+              {hero.subheadline}
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center gap-4 mb-8">
-              <button className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-500 transition px-8 py-3.5 rounded-full text-base font-semibold">
+            <div className="flex flex-col sm:flex-row items-center gap-4 mb-10">
+              <button className="w-full sm:w-auto bg-indigo-500 hover:bg-indigo-400 transition px-8 py-3.5 rounded-full text-base font-bold shadow-[0_0_25px_rgba(99,102,241,0.5)]">
                 Get the app — free
               </button>
-              <button className="w-full sm:w-auto bg-transparent hover:bg-white/5 transition px-8 py-3.5 rounded-full text-base font-semibold flex items-center justify-center">
+              <button className="w-full sm:w-auto bg-transparent border border-white/20 hover:bg-white/5 transition px-8 py-3.5 rounded-full text-base font-bold">
                 See how it works
               </button>
             </div>
             
-            {/* Badges / Trust points */}
-            <div className="flex flex-wrap gap-x-12 gap-y-4 text-xs text-gray-500 font-medium">
-              <div className="flex flex-col">
-                <span>iOS &</span>
-                <span>Android</span>
-              </div>
-              <div className="flex flex-col">
-                <span>Built for ₹, works in 30+</span>
-                <span>currencies</span>
-              </div>
-              <div className="flex flex-col">
-                <span>No bank access,</span>
-                <span>ever</span>
-              </div>
+            {/* Trust points */}
+            <div className="flex flex-wrap gap-x-8 gap-y-4 text-[11px] text-gray-500 font-bold uppercase tracking-wider">
+              <span>iOS & Android</span>
+              <span>Built for ₹, works in 30+ currencies</span>
+              <span>No bank access, ever</span>
             </div>
           </div>
           
-          {/* Right Side: Mockup Placeholder */}
-          <div className="lg:w-1/2 relative mt-16 lg:mt-0 flex justify-center">
-            {/* Decorative background blob */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-indigo-900/20 blur-3xl rounded-full"></div>
-            
-            {/* Phone Mockup Frame */}
-            <div className="relative w-[280px] h-[540px] bg-[#1a172c] rounded-[36px] border-[6px] border-[#2a2640] shadow-2xl shadow-indigo-900/50 overflow-hidden flex flex-col">
-              {/* Fake App UI */}
-              <div className="p-5 pt-8">
+          {/* Right Side: Mockup Image */}
+          <div className="lg:w-1/2 relative mt-16 lg:mt-0 flex justify-center lg:justify-end">
+            <div className="relative w-[320px] lg:w-[380px] h-[640px] bg-[#0E1122] rounded-[48px] border-[12px] border-[#1C203A] shadow-2xl overflow-hidden flex flex-col">
+              {/* Fake App UI based on the design */}
+              <div className="p-6 pt-10">
                 <div className="flex justify-between items-center mb-6">
-                  <div className="w-8 h-8 rounded-full bg-white/10"></div>
-                  <div className="w-8 h-8 rounded-full bg-white/10"></div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-indigo-400 to-indigo-600"></div>
+                    <span className="font-bold text-sm">SplitEZ</span>
+                  </div>
+                  <div className="flex gap-3">
+                    <span className="text-gray-400">🔍</span>
+                    <div className="w-6 h-6 rounded-full bg-indigo-600 text-[10px] flex items-center justify-center font-bold">SK</div>
+                  </div>
                 </div>
-                <div className="text-xs text-gray-400">Overall, you are owed</div>
-                <div className="text-3xl font-bold text-green-400 mb-8">₹1,220</div>
+                <div className="text-[11px] text-gray-400 font-medium">Overall, you are owed</div>
+                <div className="text-4xl font-extrabold text-[#22C55E] mb-6">₹1,220</div>
                 
-                <div className="flex justify-between items-center mb-4">
-                  <div className="font-bold">Groups & trips</div>
-                  <div className="text-xs text-indigo-400 font-semibold">See all</div>
-                </div>
-                
-                {/* Fake Card 1 */}
-                <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-4 mb-3">
-                  <div className="flex justify-between items-start">
+                {/* Fake App Content Area */}
+                <div className="bg-white text-gray-900 rounded-3xl p-5 h-full">
+                  <div className="flex justify-between items-center mb-4">
+                    <div className="font-bold text-sm">Groups & trips</div>
+                    <div className="text-[10px] text-indigo-600 font-bold">See all</div>
+                  </div>
+                  
+                  {/* Banner Image Area */}
+                  <div className="bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl h-20 w-full mb-3 relative overflow-hidden flex items-end p-3">
+                    <span className="text-white text-[9px] font-bold tracking-widest">BANNER IMAGE</span>
+                    <div className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/20 text-white text-[10px] font-bold px-3 py-1 rounded-full">Change</div>
+                  </div>
+                  
+                  {/* Card 1 */}
+                  <div className="flex justify-between items-start pb-4 border-b border-gray-100 mb-4">
                     <div>
-                      <div className="font-bold mb-1">Goa trip</div>
-                      <div className="text-xs text-white/70">4 people · 22-29 Aug</div>
+                      <div className="font-bold text-sm mb-1 text-gray-900">Goa trip</div>
+                      <div className="text-[10px] text-gray-500">4 people · 22-29 Aug</div>
                     </div>
                     <div className="text-right">
-                      <div className="text-xs text-white/70">owes you</div>
-                      <div className="font-bold">₹2,340</div>
+                      <div className="text-[10px] text-gray-500">owes you</div>
+                      <div className="font-bold text-sm text-[#22C55E]">₹2,340</div>
+                    </div>
+                  </div>
+
+                  {/* Card 2 */}
+                  <div className="flex justify-between items-start pb-4 border-b border-gray-100 mb-4 relative">
+                    <div className="absolute -left-12 top-0 w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-500 text-sm">🏠</div>
+                    <div>
+                      <div className="font-bold text-sm mb-1 text-gray-900">Flat 402</div>
+                      <div className="text-[10px] text-gray-500">3 people · Group</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-[10px] text-gray-500">you owe</div>
+                      <div className="font-bold text-sm text-[#EF4444]">₹1,120</div>
+                    </div>
+                  </div>
+
+                  {/* Card 3 */}
+                  <div className="flex justify-between items-start relative opacity-60">
+                    <div className="absolute -left-12 top-0 w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 text-sm">💼</div>
+                    <div>
+                      <div className="font-bold text-sm mb-1 text-gray-900">Manali 2025</div>
+                      <div className="text-[10px] text-gray-500">Archived · settled</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded font-medium">Archived</div>
                     </div>
                   </div>
                 </div>
-
-                {/* Fake Card 2 */}
-                <div className="bg-white/5 rounded-2xl p-4 mb-3 flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center mr-3">🏠</div>
-                  <div className="flex-1">
-                    <div className="font-bold text-sm">Flat 402</div>
-                    <div className="text-xs text-gray-400">3 people · Group</div>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-xs text-gray-400">you owe</div>
-                    <div className="font-bold text-red-400">₹1,120</div>
-                  </div>
-                </div>
-                
               </div>
               
               {/* Fake Floating Action Button */}
-              <div className="absolute bottom-6 right-6 w-14 h-14 bg-indigo-600 rounded-full flex items-center justify-center text-2xl shadow-lg shadow-indigo-900/50">
+              <div className="absolute bottom-6 right-6 w-14 h-14 bg-indigo-600 rounded-full flex items-center justify-center text-2xl shadow-lg shadow-indigo-600/50 text-white font-light">
                 +
               </div>
             </div>
@@ -137,36 +178,41 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* THREE TAPS SECTION */}
-      <section className="py-24 bg-gray-50 text-gray-900">
+      {/* THREE QUOTES SECTION */}
+      <section className="py-20 bg-white text-gray-900 border-b border-gray-100">
         <div className="container mx-auto px-6">
-          <div className="text-xs font-bold tracking-widest text-indigo-600 uppercase mb-4">How it works</div>
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16">
-            <h2 className="text-5xl font-extrabold tracking-tight max-w-xl">
-              Three taps from dinner to settled.
-            </h2>
-            <a href="#" className="text-indigo-600 font-semibold hover:underline mt-4 md:mt-0">
-              The full walkthrough →
-            </a>
-          </div>
-          
-          {/* Add Split Settle Grid */}
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
-              <div className="w-10 h-10 bg-indigo-50 text-indigo-600 font-bold rounded-full flex items-center justify-center mb-6">1</div>
-              <h3 className="text-2xl font-bold mb-4">Add</h3>
-              <p className="text-gray-500 mb-8">Scan the bill or type the amount. Category, payer and date fill themselves in.</p>
+          <div className="grid md:grid-cols-3 gap-12 lg:gap-20 max-w-6xl mx-auto">
+            
+            {/* Quote 1 */}
+            <div>
+              <h3 className="text-2xl font-extrabold mb-4 tracking-tight text-gray-900 leading-tight">
+                “I'll send it later”
+              </h3>
+              <p className="text-gray-500 text-sm leading-relaxed font-medium">
+                Nobody sends it later. SplitEZ keeps the number visible until it's actually settled — and sends the nudge so you don't have to.
+              </p>
             </div>
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
-              <div className="w-10 h-10 bg-teal-50 text-teal-600 font-bold rounded-full flex items-center justify-center mb-6">2</div>
-              <h3 className="text-2xl font-bold mb-4">Split</h3>
-              <p className="text-gray-500 mb-8">Equally, or not. Exact amounts, shares and percentages are all one tap away.</p>
+            
+            {/* Quote 2 */}
+            <div>
+              <h3 className="text-2xl font-extrabold mb-4 tracking-tight text-gray-900 leading-tight">
+                “Wait, who paid for the cab?”
+              </h3>
+              <p className="text-gray-500 text-sm leading-relaxed font-medium">
+                Every expense carries who paid, who shared it and when. The group's memory stops being a group chat scroll.
+              </p>
             </div>
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">
-              <div className="w-10 h-10 bg-yellow-50 text-yellow-600 font-bold rounded-full flex items-center justify-center mb-6">3</div>
-              <h3 className="text-2xl font-bold mb-4">Settle</h3>
-              <p className="text-gray-500 mb-8">One balance per person. Send a reminder, mark it paid, and the group clears.</p>
+            
+            {/* Quote 3 */}
+            <div>
+              <h3 className="text-2xl font-extrabold mb-4 tracking-tight text-gray-900 leading-tight">
+                “Just split it equally, whatever”
+              </h3>
+              <p className="text-gray-500 text-sm leading-relaxed font-medium">
+                Except two people skipped the bar and one paid for parking. Equal, exact, shares or percentages — all one tap.
+              </p>
             </div>
+            
           </div>
         </div>
       </section>
