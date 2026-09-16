@@ -1,14 +1,14 @@
 import Image from "next/image";
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 async function getFaqs() {
-  if (!process.env.NEXT_PUBLIC_STRAPI_URL) return null;
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/faqs`, { 
-      next: { revalidate: 10 } // Revalidate every 10 seconds
+    const faqs = await prisma.faq.findMany({
+      orderBy: { createdAt: 'desc' }
     });
-    if (!res.ok) return null;
-    const data = await res.json();
-    return data.data;
+    return faqs;
   } catch (error) {
     return null;
   }
