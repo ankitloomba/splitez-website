@@ -66,33 +66,33 @@ export default async function Home() {
         {/* Decorative background glow on the right */}
         <div className="absolute top-0 right-0 w-3/4 h-full bg-gradient-to-l from-indigo-900/30 to-transparent pointer-events-none"></div>
 
-        <div className="container mx-auto px-6 pt-16 pb-24 flex flex-col lg:flex-row items-center relative z-10">
+        <div className="container mx-auto px-6 pt-8 pb-12 flex flex-col lg:flex-row items-center relative z-10">
           {/* Left Side: Text */}
-          <div className="lg:w-1/2 mt-4 lg:pr-8">
-            <div className="inline-block px-4 py-1.5 rounded-full bg-transparent border border-white/20 text-xs font-semibold mb-8 text-gray-300">
+          <div className="lg:w-1/2 mt-0 lg:pr-8">
+            <div className="inline-block px-4 py-1.5 rounded-full bg-transparent border border-white/20 text-xs font-semibold mb-5 text-gray-300">
               <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 inline-block mr-2 align-middle"></span>
               {hero.badgeText}
             </div>
             
-            <h1 className="text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] mb-6 text-white">
+            <h1 className="text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] mb-5 text-white">
               {hero.headline}
             </h1>
             
-            <p className="text-lg text-gray-400 mb-10 max-w-md leading-relaxed font-medium">
+            <p className="text-base lg:text-lg text-gray-400 mb-8 max-w-md leading-relaxed font-medium">
               {hero.subheadline}
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center gap-4 mb-10">
-              <button className="w-full sm:w-auto bg-indigo-500 hover:bg-indigo-400 transition px-8 py-3.5 rounded-full text-base font-bold shadow-[0_0_25px_rgba(99,102,241,0.5)]">
+            <div className="flex flex-col sm:flex-row items-center gap-4 mb-8">
+              <button className="w-full sm:w-auto bg-indigo-500 hover:bg-indigo-400 transition px-8 py-3 rounded-full text-sm lg:text-base font-bold shadow-[0_0_25px_rgba(99,102,241,0.5)]">
                 Get the app — free
               </button>
-              <button className="w-full sm:w-auto bg-transparent border border-white/20 hover:bg-white/5 transition px-8 py-3.5 rounded-full text-base font-bold">
+              <button className="w-full sm:w-auto bg-transparent border border-white/20 hover:bg-white/5 transition px-8 py-3 rounded-full text-sm lg:text-base font-bold">
                 See how it works
               </button>
             </div>
             
             {/* Trust points */}
-            <div className="flex flex-wrap gap-x-8 gap-y-4 text-[11px] text-gray-500 font-bold uppercase tracking-wider">
+            <div className="flex flex-wrap gap-x-6 gap-y-3 text-[10px] lg:text-[11px] text-gray-500 font-bold uppercase tracking-wider">
               <span>iOS & Android</span>
               <span>Built for ₹, works in 30+ currencies</span>
               <span>No bank access, ever</span>
@@ -100,8 +100,8 @@ export default async function Home() {
           </div>
           
           {/* Right Side: Mockup Image */}
-          <div className="lg:w-1/2 relative mt-16 lg:mt-0 flex justify-center lg:justify-end">
-            <div className="relative w-[320px] lg:w-[380px] h-[640px] bg-[#0E1122] rounded-[48px] border-[12px] border-[#1C203A] shadow-2xl overflow-hidden flex flex-col">
+          <div className="lg:w-1/2 relative mt-12 lg:mt-0 flex justify-center lg:justify-end">
+            <div className="relative w-[280px] lg:w-[320px] h-[520px] bg-[#0E1122] rounded-[40px] border-[10px] border-[#1C203A] shadow-2xl overflow-hidden flex flex-col">
               {/* Fake App UI based on the design */}
               <div className="p-6 pt-10">
                 <div className="flex justify-between items-center mb-6">
